@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label_Sensor0Y = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -70,6 +70,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -88,7 +89,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(244, 144);
+            this.groupBox1.Size = new System.Drawing.Size(244, 174);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sensor 1";
@@ -134,7 +135,7 @@
             this.label_Status});
             this.statusStrip1.Location = new System.Drawing.Point(0, 940);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(2540, 37);
+            this.statusStrip1.Size = new System.Drawing.Size(2168, 37);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -147,9 +148,9 @@
             // button_Conectar
             // 
             this.button_Conectar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_Conectar.Location = new System.Drawing.Point(12, 837);
+            this.button_Conectar.Location = new System.Drawing.Point(12, 192);
             this.button_Conectar.Name = "button_Conectar";
-            this.button_Conectar.Size = new System.Drawing.Size(904, 93);
+            this.button_Conectar.Size = new System.Drawing.Size(538, 93);
             this.button_Conectar.TabIndex = 2;
             this.button_Conectar.Text = "Conectar";
             this.button_Conectar.UseVisualStyleBackColor = true;
@@ -161,12 +162,13 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label_Sensor1X);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(12, 162);
+            this.groupBox2.Location = new System.Drawing.Point(306, 322);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(244, 138);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sensor 2";
+            this.groupBox2.Visible = false;
             // 
             // label_Sensor1Y
             // 
@@ -208,12 +210,13 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label_Sensor2X);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Location = new System.Drawing.Point(12, 306);
+            this.groupBox3.Location = new System.Drawing.Point(306, 466);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(244, 146);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sensor 3";
+            this.groupBox3.Visible = false;
             // 
             // label_Sensor2Y
             // 
@@ -255,12 +258,13 @@
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.label_Sensor3X);
             this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Location = new System.Drawing.Point(12, 458);
+            this.groupBox4.Location = new System.Drawing.Point(306, 618);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(244, 150);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Sensor 4";
+            this.groupBox4.Visible = false;
             // 
             // label_Sensor3Y
             // 
@@ -302,12 +306,13 @@
             this.groupBox5.Controls.Add(this.label16);
             this.groupBox5.Controls.Add(this.label_Sensor4X);
             this.groupBox5.Controls.Add(this.label18);
-            this.groupBox5.Location = new System.Drawing.Point(12, 614);
+            this.groupBox5.Location = new System.Drawing.Point(306, 774);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(244, 144);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Sensor 5";
+            this.groupBox5.Visible = false;
             // 
             // label_Sensor4Y
             // 
@@ -345,7 +350,7 @@
             // 
             // progressBarAmplitude
             // 
-            this.progressBarAmplitude.Location = new System.Drawing.Point(1862, 51);
+            this.progressBarAmplitude.Location = new System.Drawing.Point(1496, 51);
             this.progressBarAmplitude.Name = "progressBarAmplitude";
             this.progressBarAmplitude.Size = new System.Drawing.Size(654, 879);
             this.progressBarAmplitude.Step = 1;
@@ -354,7 +359,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1868, 23);
+            this.label5.Location = new System.Drawing.Point(1502, 23);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(24, 25);
             this.label5.TabIndex = 7;
@@ -363,7 +368,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(2470, 23);
+            this.label7.Location = new System.Drawing.Point(2104, 23);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 25);
             this.label7.TabIndex = 8;
@@ -376,7 +381,7 @@
             this.groupBox7.Controls.Add(this.textBox_DesiredX);
             this.groupBox7.Controls.Add(this.label9);
             this.groupBox7.Controls.Add(this.label13);
-            this.groupBox7.Location = new System.Drawing.Point(628, 584);
+            this.groupBox7.Location = new System.Drawing.Point(262, 12);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(288, 174);
             this.groupBox7.TabIndex = 4;
@@ -430,31 +435,41 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            this.chart1.Location = new System.Drawing.Point(922, 12);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Location = new System.Drawing.Point(556, 12);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Name = "Series_MinAngle";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series5.Name = "Series_MaxAngle";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series6.Name = "Series_CurrentAngle";
-            this.chart1.Series.Add(series4);
-            this.chart1.Series.Add(series5);
-            this.chart1.Series.Add(series6);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Name = "Series_MinAngle";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Name = "Series_MaxAngle";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Name = "Series_CurrentAngle";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(934, 918);
             this.chart1.TabIndex = 10;
             this.chart1.Text = "chart1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1704, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(271, 25);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Amplitude do pulso elétrico";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2540, 977);
+            this.ClientSize = new System.Drawing.Size(2168, 977);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.label7);
@@ -532,6 +547,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
