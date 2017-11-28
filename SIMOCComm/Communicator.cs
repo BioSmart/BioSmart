@@ -64,6 +64,11 @@ namespace SIMOCComm
         public event EventHandler OnConnect;
         public event EventHandler OnDisconnect;
 
+        public void SendInfo(byte[] message)
+        {
+            this.Listener.MessageToSend = message;
+        }
+
         private void Listener_OnRead(object sender, SIMOCModel.Events.ReadEventArgs e)
         {
             NumberOfReads++;

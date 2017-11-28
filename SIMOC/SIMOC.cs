@@ -71,8 +71,8 @@ namespace SIMOCDevice
 
         private void Stimulation_OnAmplitudeChanged(object sender, EventArgs e)
         {
-            //TODO: Envia a nova estimulação ao eletroestimulador;
-
+            this.Comm.SendInfo(this.Stimulation.ToByteArray());
+            
             OnStimulationChange?.Invoke(this, null);
         }
 

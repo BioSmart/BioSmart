@@ -65,7 +65,7 @@ namespace SIMOCModel
         #endregion
 
         #region Amplitude
-                
+
         private int amplitude;
 
         public int Amplitude
@@ -115,6 +115,48 @@ namespace SIMOCModel
         public event EventHandler OnCalibrationChange;
 
         #endregion
+
+        public byte[] ToByteArray()
+        {
+            byte[] stimulationChannel1 = new byte[] { (byte)(this.PulseWidth / 50), (byte)(this.TimeBetweenPulses / 50), (byte)this.Amplitude, (byte)(this.StimulationFrequency / 5) };
+            byte[] stimulationChannel2 = new byte[] { (byte)(this.PulseWidth / 50), (byte)(this.TimeBetweenPulses / 50), (byte)this.Amplitude, (byte)(this.StimulationFrequency / 5) };
+            byte[] stimulationChannel3 = new byte[] { (byte)(this.PulseWidth / 50), (byte)(this.TimeBetweenPulses / 50), (byte)this.Amplitude, (byte)(this.StimulationFrequency / 5) };
+            byte[] stimulationChannel4 = new byte[] { (byte)(this.PulseWidth / 50), (byte)(this.TimeBetweenPulses / 50), (byte)this.Amplitude, (byte)(this.StimulationFrequency / 5) };
+            byte[] stimulationChannel5 = new byte[] { (byte)(this.PulseWidth / 50), (byte)(this.TimeBetweenPulses / 50), (byte)this.Amplitude, (byte)(this.StimulationFrequency / 5) };
+            byte[] stimulationChannel6 = new byte[] { (byte)(this.PulseWidth / 50), (byte)(this.TimeBetweenPulses / 50), (byte)this.Amplitude, (byte)(this.StimulationFrequency / 5) };
+            byte[] stimulationChannel7 = new byte[] { (byte)(this.PulseWidth / 50), (byte)(this.TimeBetweenPulses / 50), (byte)this.Amplitude, (byte)(this.StimulationFrequency / 5) };
+            byte[] stimulationChannel8 = new byte[] { (byte)(this.PulseWidth / 50), (byte)(this.TimeBetweenPulses / 50), (byte)this.Amplitude, (byte)(this.StimulationFrequency / 5) };
+            byte[] stimulationChannels =
+                stimulationChannel1
+                .Concat(stimulationChannel2)
+                .Concat(stimulationChannel3)
+                .Concat(stimulationChannel4)
+                .Concat(stimulationChannel5)
+                .Concat(stimulationChannel6)
+                .Concat(stimulationChannel7)
+                .Concat(stimulationChannel8)
+                .ToArray();
+
+            byte[] start = new byte[] { (byte)'$', (byte)'C' } ;
+
+            byte[] result = start.Concat(stimulationChannels).ToArray();
+
+            byte[] end = new byte[] { GetChecksum(result), (byte)';' };
+
+            return result.Concat(end).ToArray();
+        }
+
+        private static byte GetChecksum(byte[] content)
+        {
+            byte sum = 0;
+
+            for (int i = 0; i < content.Length; i++)
+            {
+                sum += content[i];
+            }
+
+            return sum;
+        }
 
     }
 }

@@ -10,6 +10,8 @@ namespace SIMOCFuzzy
 {
     public class FuzzyControl
     {
+        const int ThreadSleepTime = 500;
+
         public FuzzyControl(Sensor sensor, ElectroStimulationParameters stimulation)
         {
             Sensor = sensor;
@@ -56,7 +58,7 @@ namespace SIMOCFuzzy
                         && Sensor.AnguloY < Stimulation.DesiredAngle.Y)
                     {
                         Stimulation.Amplitude++;
-                        Thread.Sleep(500);
+                        Thread.Sleep(ThreadSleepTime);
                     }
                 }
                 else if (Sensor.AnguloY > Stimulation.DesiredAngle.Y)
@@ -65,7 +67,7 @@ namespace SIMOCFuzzy
                         && Sensor.AnguloY > Stimulation.DesiredAngle.Y)
                     {
                         Stimulation.Amplitude--;
-                        Thread.Sleep(500);
+                        Thread.Sleep(ThreadSleepTime);
                     }
                 }
             }

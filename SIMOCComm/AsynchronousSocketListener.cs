@@ -38,6 +38,8 @@ namespace SIMOCComm
 
         public Socket Listener { get; set; }
 
+        public byte[] MessageToSend { get; set; }
+
         #endregion
 
         #region Events
@@ -104,6 +106,11 @@ namespace SIMOCComm
                     int bytesRead = handler.Receive(buffer, 0, MessageSize, 0);
 
                     ReadBytes(bytesRead, buffer);
+
+                    if (this.MessageToSend != null)
+                    {
+                        Send(handler, this.MessageToSend);
+                    }
                 }
             }
             catch (Exception e)
@@ -132,14 +139,22 @@ namespace SIMOCComm
 
         #region Send
 
-        private void Send(Socket handler, String data)
+        private void Send(Socket handler, byte[] data)
         {
-            // Convert the string data to byte data using ASCII encoding.  
-            byte[] byteData = Encoding.ASCII.GetBytes(data);
+            // Check the integrity of the message
+            if (data[0] == MessageStart)
+            {
+                if (data[data.Length - 1] == MessageEnd)
+                {
+                    if (Checksum(data, ChecksumPosition))
+                    {
+                        // Begin sending the data to the remote device.  
+                        handler.BeginSend(data, 0, data.Length, 0,
+                            new AsyncCallback(SendCallback), handler);
+                    }
+                }
 
-            // Begin sending the data to the remote device.  
-            handler.BeginSend(byteData, 0, byteData.Length, 0,
-                new AsyncCallback(SendCallback), handler);
+            }
         }
 
         private void SendCallback(IAsyncResult ar)
@@ -153,8 +168,8 @@ namespace SIMOCComm
                 int bytesSent = handler.EndSend(ar);
                 Console.WriteLine("Sent {0} bytes to client.", bytesSent);
 
-                handler.Shutdown(SocketShutdown.Both);
-                handler.Close();
+                // handler.Shutdown(SocketShutdown.Both);
+                // handler.Close();
 
             }
             catch (Exception e)
